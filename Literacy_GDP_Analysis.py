@@ -471,7 +471,7 @@ elif page == "Country Profile Page":
 
 
     # Adult Literacy Trend
-        adult_youth_df = pd.read_sql("select * from adult_youth_df WHERE country = '{country}'", engine)
+        adult_youth_df = pd.read_sql(f"select * from adult_youth_df WHERE country = '{country}'", engine)
         fig1 = px.bar(
         adult_youth_df,
         x="year",
@@ -482,7 +482,7 @@ elif page == "Country Profile Page":
         st.plotly_chart(fig1)
 
     # Youth Literacy Trend
-        adult_youth_df = pd.read_sql("select * from adult_youth_df WHERE country = '{country}'", engine)
+        adult_youth_df = pd.read_sql(f"select * from adult_youth_df WHERE country = '{country}'", engine)
         fig2 = px.scatter(
         adult_youth_df,
         x="youth_literacy_rate_female",
@@ -493,7 +493,7 @@ elif page == "Country Profile Page":
         st.plotly_chart(fig2)
 
     # GDP Trend
-        gdp_schooling_df = pd.read_sql("select * from gdp_schooling_df WHERE country = '{country}'", engine)
+        gdp_schooling_df = pd.read_sql(f"select * from gdp_schooling_df WHERE country = '{country}'", engine)
         fig3 = px.bar(
         gdp_schooling_df,
         x="year",
@@ -504,7 +504,7 @@ elif page == "Country Profile Page":
         st.plotly_chart(fig3)
 
     # Education Trend
-        gdp_schooling_df = pd.read_sql("select * from gdp_schooling_df WHERE country = '{country}'", engine)
+        gdp_schooling_df = pd.read_sql(f"select * from gdp_schooling_df WHERE country = '{country}'", engine)
         fig4 = px.scatter(
         gdp_schooling_df,
         x="avg_year_edu",
@@ -516,7 +516,7 @@ elif page == "Country Profile Page":
 
 
     # Illiteracy Trend
-        illiterate_pop_data = pd.read_sql("select * from illiterate_pop_data WHERE country = '{country}'", engine)
+        illiterate_pop_data = pd.read_sql(f"select * from illiterate_pop_data WHERE country = '{country}'", engine)
         fig5 = px.line(
         illiterate_pop_data,
         x="illiteracy_rate",
