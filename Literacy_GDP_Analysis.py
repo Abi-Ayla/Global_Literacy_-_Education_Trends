@@ -466,7 +466,7 @@ elif page == "Country Profile Page":
     )
 
     if st.button("Display Country"):
-        dataset = pd.read_sql("select * from dataset", engine)
-        query_result = dataset[dataset["country"].isin(Select_Country)]
-        query_result
+        country = 'Afghanistan'
+        sql = pd.read_sql(f"select * from dataset where country = '{country}'", engine)
+        sql
 
