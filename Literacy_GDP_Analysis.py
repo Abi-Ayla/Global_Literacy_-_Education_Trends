@@ -461,5 +461,5 @@ elif page == "Country Profile Page":
     if st.button("Display Country"):
         query = "SELECT * FROM dataset WHERE country = %s"
         df = pd.read_sql(query, engine, params=[country])
-        st.dataframe(df))
+        st.dataframe(df)
 
