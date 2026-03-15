@@ -466,7 +466,7 @@ elif page == "Country Profile Page":
     )
 
     if st.button("Display Country"):
-        country = 'Afghanistan'
+        # country = 'Afghanistan'
         sql = pd.read_sql(f"select * from dataset where country = '{country}'", engine)
         sql
 
