@@ -447,28 +447,19 @@ elif page == "EDA Visualizations":
                         Literacy rate and average years of education has a very positive corelation""")
 
 elif page == "Country Profile Page":
+
     st.title("Country Profile")
 
+    # Get list of countries from database
+    country_list = pd.read_sql("SELECT DISTINCT country FROM dataset", engine)
 
     country = st.selectbox(
         "Select Country",
-        ('Afghanistan', 'Armenia', 'Bangladesh', 'Belize', 'Bolivia',
-       'Brazil', 'Cambodia', 'Cameroon', 'Chile', 'China', 'Colombia',
-       'Costa Rica', "Cote d'Ivoire", 'Dominican Republic', 'Ecuador',
-       'Egypt', 'El Salvador', 'Eswatini', 'Gambia', 'Ghana', 'Guatemala',
-       'Guyana', 'Honduras', 'Indonesia', 'Iran', 'Iraq', 'Jordan',
-       'Kenya', 'Kuwait', 'Laos', 'Lesotho', 'Malawi', 'Malaysia', 'Mali',
-       'Malta', 'Mauritania', 'Mauritius', 'Mexico', 'Mongolia',
-       'Mozambique', 'Myanmar', 'Nicaragua', 'Niger', 'Pakistan',
-       'Panama', 'Paraguay', 'Peru', 'Philippines', 'Russia', 'Rwanda',
-       'Saudi Arabia', 'Senegal', 'Singapore', 'South Africa', 'Spain',
-       'Sri Lanka', 'Sudan', 'Tanzania', 'Thailand', 'Togo',
-       'Trinidad and Tobago', 'Tunisia', 'Turkey', 'Uganda', 'Uruguay',
-       'Zambia')
+        country_list["country"]
     )
 
     if st.button("Display Country"):
-        if country == "Afghanistan":
-            df = pd.read_sql("select * from dataset where country = 'Afghanistan'", engine)
-        st.dataframe(df)
+        query = "SELECT * FROM dataset WHERE country = %s"
+        df = pd.read_sql(query, engine, params=[country])
+        st.dataframe(df))
 
