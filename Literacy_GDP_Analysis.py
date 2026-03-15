@@ -472,7 +472,7 @@ elif page == "Country Profile Page":
 
     # Literacy Trend
         fig1 = px.line(
-        df,
+        adult_youth_df,
         x="year",
         y="adult_literacy_rate",
         title=f"{country} Adult Literacy Rate Trend"
@@ -482,7 +482,7 @@ elif page == "Country Profile Page":
 
     # GDP Trend
         fig2 = px.line(
-        df,
+        gdp_schooling_df,
         x="year",
         y="gdp_per_capita",
         title=f"{country} GDP Per Capita Trend"
@@ -492,7 +492,7 @@ elif page == "Country Profile Page":
 
     # Education Trend
         fig3 = px.line(
-        df,
+        gdp_schooling_df,
         x="year",
         y="avg_year_edu",
         title=f"{country} Average Years of Education"
