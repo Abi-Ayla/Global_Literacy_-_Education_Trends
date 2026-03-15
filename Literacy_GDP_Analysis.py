@@ -471,6 +471,7 @@ elif page == "Country Profile Page":
 
 
     # Literacy Trend
+        adult_youth_df = pd.read_sql("select * from adult_youth_df", engine)
         fig1 = px.line(
         adult_youth_df,
         x="year",
@@ -481,6 +482,7 @@ elif page == "Country Profile Page":
         st.plotly_chart(fig1)
 
     # GDP Trend
+        gdp_schooling_df = pd.read_sql("select * from gdp_schooling_df", engine)
         fig2 = px.line(
         gdp_schooling_df,
         x="year",
@@ -491,6 +493,7 @@ elif page == "Country Profile Page":
         st.plotly_chart(fig2)
 
     # Education Trend
+        gdp_schooling_df = pd.read_sql("select * from gdp_schooling_df", engine)
         fig3 = px.line(
         gdp_schooling_df,
         x="year",
