@@ -469,31 +469,41 @@ elif page == "Country Profile Page":
         sql = pd.read_sql(f"select * from dataset where country = '{country}'", engine)
         sql
 
-        fig1 = px.line(
-            df,
-            x="year",
-            y="adult_literacy_rate",
-            title=f"{country} Adult Literacy Rate Trend"
-        )
+        if st.button("Display Country"):
+
+            df = pd.read_sql(
+        f"SELECT * FROM dataset WHERE country = '{country}'",
+        engine
+    )
+
+            st.dataframe(df)
+
+    # Literacy Trend
+            fig1 = px.line(
+        df,
+        x="year",
+        y="adult_literacy_rate",
+        title=f"{country} Adult Literacy Rate Trend"
+    )
 
         st.plotly_chart(fig1)
 
-        # GDP Trend
+    # GDP Trend
         fig2 = px.line(
-            df,
-            x="year",
-            y="gdp_per_capita",
-            title=f"{country} GDP Per Capita Trend"
-        )
+        df,
+        x="year",
+        y="gdp_per_capita",
+        title=f"{country} GDP Per Capita Trend"
+    )
 
         st.plotly_chart(fig2)
 
-        # Schooling Trend
+    # Education Trend
         fig3 = px.line(
-            df,
-            x="year",
-            y="avg_year_edu",
-            title=f"{country} Secondary School Enrollment"
-        )
+        df,
+        x="year",
+        y="avg_year_edu",
+        title=f"{country} Average Years of Education"
+    )
 
         st.plotly_chart(fig3)
