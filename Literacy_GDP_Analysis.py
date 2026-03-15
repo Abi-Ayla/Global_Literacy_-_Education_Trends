@@ -449,7 +449,7 @@ elif page == "EDA Visualizations":
 elif page == "Country Profile Page":
 
     country = st.selectbox(
-        "Select Country",
+        "Select_Country",
         ('Afghanistan', 'Armenia', 'Bangladesh', 'Belize', 'Bolivia',
        'Brazil', 'Cambodia', 'Cameroon', 'Chile', 'China', 'Colombia',
        'Costa Rica', "Cote d'Ivoire", 'Dominican Republic', 'Ecuador',
@@ -467,6 +467,6 @@ elif page == "Country Profile Page":
 
     if st.button("Display Country"):
         dataset = pd.read_sql("select * from dataset", engine)
-        query_result = dataset[dataset["country"].isin(selected_country)]
+        query_result = dataset[dataset["country"].isin(Select_Country)]
         query_result
 
