@@ -470,9 +470,9 @@ elif page == "Country Profile Page":
         sql
 
 
-    # Literacy Trend
+    # Adult Literacy Trend
         adult_youth_df = pd.read_sql("select * from adult_youth_df", engine)
-        fig1 = px.line(
+        fig1 = px.bar(
         adult_youth_df,
         x="year",
         y="adult_literacy_rate",
@@ -481,24 +481,48 @@ elif page == "Country Profile Page":
 
         st.plotly_chart(fig1)
 
+    # Youth Literacy Trend
+        adult_youth_df = pd.read_sql("select * from adult_youth_df", engine)
+        fig2 = px.scatter(
+        adult_youth_df,
+        x="youth_literacy_rate_female",
+        y="youth_literacy_rate_male", hover_data = "year",
+        title=f"{country} Youth Literacy Rate Trend"
+    )
+
+        st.plotly_chart(fig2)
+
     # GDP Trend
         gdp_schooling_df = pd.read_sql("select * from gdp_schooling_df", engine)
-        fig2 = px.line(
+        fig3 = px.bar(
         gdp_schooling_df,
         x="year",
         y="gdp_per_capita",
         title=f"{country} GDP Per Capita Trend"
     )
 
-        st.plotly_chart(fig2)
+        st.plotly_chart(fig3)
 
     # Education Trend
         gdp_schooling_df = pd.read_sql("select * from gdp_schooling_df", engine)
-        fig3 = px.line(
+        fig4 = px.scatter(
         gdp_schooling_df,
         x="year",
-        y="avg_year_edu",
-        title=f"{country} Average Years of Education"
+        y="avg_year_edu", hover_data = "literacy_rate",
+        title=f"{country} Average Years of Education along with literacy rate"
     )
 
-        st.plotly_chart(fig3)
+        st.plotly_chart(fig4)
+
+
+    # Illiteracy Trend
+        illiterate_pop_data = pd.read_sql("select * from illiterate_pop_data", engine)
+        fig5 = px.line(
+        illiterate_pop_data,
+        x="illiteracy_rate",
+        y="literacy_rate", hover_data = "year",
+        title=f"{country} relationship Between Literacy Rate and Illiteracy Rate Over Time"
+    )
+
+        st.plotly_chart(fig5)
+        
