@@ -466,20 +466,6 @@ elif page == "Country Profile Page":
     )
 
     if st.button("Display Country"):
-        ['Afghanistan', 'Armenia', 'Bangladesh', 'Belize', 'Bolivia',
-       'Brazil', 'Cambodia', 'Cameroon', 'Chile', 'China', 'Colombia',
-       'Costa Rica', "Cote d'Ivoire", 'Dominican Republic', 'Ecuador',
-       'Egypt', 'El Salvador', 'Eswatini', 'Gambia', 'Ghana', 'Guatemala',
-       'Guyana', 'Honduras', 'Indonesia', 'Iran', 'Iraq', 'Jordan',
-       'Kenya', 'Kuwait', 'Laos', 'Lesotho', 'Malawi', 'Malaysia', 'Mali',
-       'Malta', 'Mauritania', 'Mauritius', 'Mexico', 'Mongolia',
-       'Mozambique', 'Myanmar', 'Nicaragua', 'Niger', 'Pakistan',
-       'Panama', 'Paraguay', 'Peru', 'Philippines', 'Russia', 'Rwanda',
-       'Saudi Arabia', 'Senegal', 'Singapore', 'South Africa', 'Spain',
-       'Sri Lanka', 'Sudan', 'Tanzania', 'Thailand', 'Togo',
-       'Trinidad and Tobago', 'Tunisia', 'Turkey', 'Uganda', 'Uruguay',
-       'Zambia']
-        
         query_result = dataset[dataset["country"].isin(selected_country)]
         query_result
 
