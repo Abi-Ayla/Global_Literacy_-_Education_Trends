@@ -450,7 +450,7 @@ elif page == "Country Profile Page":
 
     st.title("Country Profile")
 
-    # Get list of countries from database
+    # get country list from database
     countries = pd.read_sql("SELECT DISTINCT country FROM dataset", engine)
 
     country = st.selectbox(
@@ -460,12 +460,12 @@ elif page == "Country Profile Page":
 
     if st.button("Display Country"):
 
-        query = "SELECT * FROM dataset WHERE country = ?"
+        query = "SELECT * FROM dataset WHERE country = %s"
 
         df = pd.read_sql(
             query,
             engine,
-            params=(country,)
+            params=[country]
         )
 
         st.dataframe(df)
